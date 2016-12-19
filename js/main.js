@@ -250,21 +250,26 @@
    /* --------------------------------------------
       On scroll
    --------------------------------------------- */
-
-   $(window).scroll(function () {
-        var y = $(this).scrollTop();
-        if (y > 120) {
-            $(".menu-btn").addClass("fixed_nav");
+   if (window.innerWidth < 950) {
             $('.menu-btn').fadeIn( 400, function() {
                 // Animation complete
             });
-        } else {
-            $('.menu-btn').fadeOut( 400, function() {
-                // Animation complete
-                $(".menu-btn").removeClass("fixed_nav");
-            });
-        }
-   });
+    } else {
+     $(window).scroll(function () {
+          var y = $(this).scrollTop();
+          if (y > 120) {
+              $(".menu-btn").addClass("fixed_nav");
+              $('.menu-btn').fadeIn( 400, function() {
+                  // Animation complete
+              });
+          } else {
+              $('.menu-btn').fadeOut( 400, function() {
+                  // Animation complete
+                  $(".menu-btn").removeClass("fixed_nav");
+              });
+          }
+     });
+   }
 
    /* ---------------------------------------------
     Scripts initialization
