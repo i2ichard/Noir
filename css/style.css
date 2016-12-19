@@ -2810,6 +2810,9 @@ textarea {}
 /* 
  *  Core Owl Carousel CSS File
  */
+.lazy {
+  display: none;
+}
 
 .owl-carousel {
   display: none;

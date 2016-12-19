@@ -230,7 +230,7 @@
        target: 'instagramfeed',
        limit: 8,
        resolution: 'low_resolution',
-       template: '<li><a href="{{link}}"><img src="{{image}}" /></a></li>'
+       template: '<li><a href="{{link}}"><img class="lazy" data-original="{{image}}" /></a></li>'
      });
      feed.run();
  
@@ -397,8 +397,13 @@
    } // otherwise, history is not supported, so nothing fancy here.
 
 
+   /* ---------------------------------------------
+    Lazyload JQuery Plugin
+    --------------------------------------------- */
+
    $(function() {
       $("img.lazy").lazyload({
+        threshold: 200,
         effect : "fadeIn"
       });
 
