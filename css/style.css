@@ -502,7 +502,6 @@ footer {}
 
 .align_left_hero p {
   font-family: 'Cardo', serif;
-  ;
   padding: 0 50% 0 0;
 }
 
@@ -1510,7 +1509,7 @@ header {
   position: absolute;
   top: 5%;
   left: -100%;
-  bottom: 0;
+  bottom: 25px;
   right: 0;
   z-index: 1;
   width: 39%;
@@ -1522,7 +1521,7 @@ header {
   position: absolute;
   top: 5%;
   left: -150%;
-  bottom: 0;
+  bottom: 25px;
   right: 0;
   z-index: 1;
   width: 80%;
@@ -1710,14 +1709,14 @@ header {
 
 @media only screen and (max-width: 1050px) {
   .owl-controls .owl-nav div.owl-prev {
-    top: 92%;
-    left: 5%;
-    margin-left: -85px;
+    margin-left: -25px;
+    top: 95%!important;
+    left: 15%!important;
   }
   .owl-controls .owl-nav div.owl-next {
-    top: 92%;
-    right: 5%;
-    margin-right: -80px;
+    margin-right: -25px;
+    top: 95%!important;
+    right: 15%!important;
   }
 }
 
@@ -1742,8 +1741,11 @@ header {
     margin-left: 0;
     max-width: 530px;
     margin: 0 auto;
-    /*width: 100%;*/
+    width: 100%;
     height: auto;
+  }
+  .work-carousel .work-item .vertical-img img {
+    width: auto;
   }
   .work-carousel .work-item .work-img:after {
     height: 0;
@@ -1752,11 +1754,11 @@ header {
   }
   .work-title {
     margin: auto;
-    position: static;
-    width: 100%;
-    font-family: 'Cardo', serif;
+    position: static!important;
+    width: 100%!important;
+    font-family: 'Cardo', serif!important;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 30px!important;
   }
   .work-title h2 {
     font-size: 16px;
@@ -1777,6 +1779,16 @@ header {
   }
 }
 
+@media only screen and (max-width: 650px) {
+  .owl-controls .owl-nav div.owl-prev {
+    top: 97%!important;
+    left: 15%!important;
+  }
+  .owl-controls .owl-nav div.owl-next {
+    top: 97%!important;
+    right: 15%!important;
+  }
+}
 
 @media only screen and (max-width: 450px) {
   .owl-dots {

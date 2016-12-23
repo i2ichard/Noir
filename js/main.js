@@ -276,7 +276,35 @@ $(document).ready(function() {
     /* ---------------------------------------------
     Dynamic Page Replacing or loading
     --------------------------------------------- */
+    function loadContent(href) {
+        "use strict"; // Start of use strict
 
+        $mainContent
+            .find("#guts")
+            .fadeOut(200, function() {
+                $mainContent.hide().load(href + " #guts", function() {
+                    $mainContent.fadeIn(200, function() {
+                        $pageWrap.animate({
+                            height: baseHeight + $mainContent.height() + "px"
+                        });
+                    });
+                    $("nav a").removeClass("current");
+                    $("nav a[href$='" + href + "']").addClass("current");
+
+                    owl_main_carousel();
+                    owl_second_carousel();
+                    owl_loop_carousel();
+                    Isotope_masonry_layout();
+                    Isotope_masonry_fitRows();
+                    page_height_mange();
+                    $(window).scrollTop(0);
+                    $(".fit").fitVids();
+                    page_loading();
+
+                });
+            });
+    }
+    
     if (Modernizr.history && !$('#main-carousel')) {
 
         $("#page-wrap").append("<div class='display-none page_loading'><div class='spinner'></div></div>").fadeIn("slow");
@@ -297,35 +325,6 @@ $(document).ready(function() {
             return false;
         });
 
-
-        function loadContent(href) {
-            "use strict"; // Start of use strict
-
-            $mainContent
-                .find("#guts")
-                .fadeOut(200, function() {
-                    $mainContent.hide().load(href + " #guts", function() {
-                        $mainContent.fadeIn(200, function() {
-                            $pageWrap.animate({
-                                height: baseHeight + $mainContent.height() + "px"
-                            });
-                        });
-                        $("nav a").removeClass("current");
-                        $("nav a[href$='" + href + "']").addClass("current");
-
-                        owl_main_carousel();
-                        owl_second_carousel();
-                        owl_loop_carousel();
-                        Isotope_masonry_layout();
-                        Isotope_masonry_fitRows();
-                        page_height_mange();
-                        $(window).scrollTop(0);
-                        $(".fit").fitVids();
-                        page_loading();
-
-                    });
-                });
-        }
 
         $(window).bind('popstate', function() {
             _link = location.pathname.replace(/^.*[\\\/]/, ''); //get filename only
